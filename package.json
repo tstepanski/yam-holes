@@ -1,13 +1,25 @@
 {
   "author": "Timothy M. Stepanski",
   "devDependencies": {
+    "@types/node": "^18.11.17",
+    "css-minify": "^2.0.0",
+    "html-minifier": "^4.0.0",
     "typescript": "^4.9.4",
     "uglify-js": "^3.17.4"
   },
   "license": "GPL",
   "name": "yam-holes",
   "scripts": {
-    "build": "tsc main.ts && uglifyjs main.js --compress --mangle --mangle-props --output main.min.js"
+    "build": "tsc",
+    "minifiy-js": "uglifyjs dist/main.js --compress --mangle --mangle-props --output dist/main.min.js",
+    "publish-js": "npm run build && npm run minifiy-js",
+    "copy-files": "node copy-static-files.js",
+    "minify-css": "css-minify --file dist/styles.css --output dist",
+    "minify-html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --output dist/index.html dist/index.html",
+    "minify-static": "npm run minify-css & npm run minify-html",
+    "publish-static": "npm run copy-files && npm run minify-static",
+    "publish": "npm run publish-js & npm run publish-static"
   },
   "version": "1.0.0"
 }
+

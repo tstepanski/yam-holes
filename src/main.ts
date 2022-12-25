@@ -790,11 +790,21 @@ window.onload = () => {
         return accumulator;
     }, <Record<string, Record<string, Wormhole>>>{});
 
-    const letterSelect = document.getElementById("letter-select");
-    const numberSelect = document.getElementById("number-select");
-    const wormholeInformation = document.getElementById("wormhole-information");
-    const wormholeName = document.getElementById("wormhole-name");
-    const wormholeDestination = document.getElementById("wormhole-destination");
+    const getElement = (id: string) => {
+        const element = document.getElementById(id);
+
+        if (element === null || element === undefined) {
+            throw new Error(`Count not find element with id: ${id}`);
+        }
+
+        return element;
+    }
+
+    const letterSelect = getElement("letter-select");
+    const numberSelect = getElement("number-select");
+    const wormholeInformation = getElement("wormhole-information");
+    const wormholeName = getElement("wormhole-name");
+    const wormholeDestination = getElement("wormhole-destination");
 
     const createWormholeValueBar = (valueName: string, maximum: number, textValueFormatter: (value: number) => string):
         (value: number) => void => {
