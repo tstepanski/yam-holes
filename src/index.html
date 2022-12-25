@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Yam-Holes</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"/>
-    <script src="main.ts"></script>
+	<meta charset="UTF-8">
+	<title>Yam-Holes</title>
+	<link rel="stylesheet" type="text/css" href="styles.css"/>
+	<script src="main.ts"></script>
 </head>
 <body>
 <h1>Yam-Holes: EVE Online Wormhole Tool</h1>
+<span id="select-header">Select the letter, then the number to choose the wormhole</span>
 <div id="letter-select"></div>
 <div id="number-select"></div>
 <div id="wormhole-information" style="display: none;">
-    <h2 id="wormhole-name"></h2>
-    <span id="wormhole-destination"></span>
+	<h2 id="wormhole-name"></h2>
+	<span id="wormhole-destination"></span>
+    <div id="wormhole-metrics">
+	    <div id="wormhole-metric-bars"></div>
+	    <div id="wormhole-metric-values"></div>
+    </div>
 </div>
 </body>
 </html>

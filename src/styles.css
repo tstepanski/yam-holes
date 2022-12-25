@@ -1,16 +1,20 @@
 body {
     background-color: #5b64ff;
-    text-align: center;
+    font-family: Roboto, sans-serif;
+    text-align: center
 }
 
 .select-button {
+    border: 2px solid #fff;
+    box-shadow: 5px 5px 5px #000;
     display: inline-block;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #fff;
-    margin: 5px;
     font-size: 4em;
-    height: 1.2em
+    height: 1.2em;
+    margin: 5px
+}
+
+.mouse-down {
+    box-shadow: 2px 2px 5px #000
 }
 
 .select-button:hover {
@@ -18,37 +22,60 @@ body {
 }
 
 .letter-select-button {
-    width: 1.2em;
+    width: 1.2em
 }
 
 .number-select-button {
-    width: 1.6em;
+    width: 2em
 }
 
-.bar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#wormhole-metrics {
+    text-align: center
+}
+
+#wormhole-metric-bars,
+#wormhole-metric-values {
+    display: inline-block;
+    text-align: right;
+    vertical-align: top
+}
+
+#wormhole-metric-bars {
+    text-align: left
+}
+
+.value-header {
+    display: block;
+    font-weight: 700;
+    margin-bottom: .25em;
+    margin-left: 0;
+    margin-top: 1em
 }
 
 .bar-border {
-    width: 20em;
+    border: 2px solid #fff;
+    display: block;
     height: 1em;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #fff;
+    width: 10vw
 }
 
 .bar-value {
     background-color: #fff;
-    height: 1em;
-}
-
-span {
-    margin: 1em;
+    height: 1em
 }
 
 .simple-value {
-    margin-left: 1em;
-    font-size: 1.2em
+    display: block;
+    font-size: 1em;
+    margin: 2.4em
+}
+
+#wormhole-destination {
+    font-size: 1.2em;
+    font-weight: bolder;
+    margin-bottom: .1em;
+}
+
+h1, h2 {
+    margin-bottom: 0.25em;
 }
