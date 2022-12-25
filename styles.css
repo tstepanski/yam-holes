@@ -1,0 +1,54 @@
+body {
+    background-color: #5b64ff;
+    text-align: center;
+}
+
+.select-button {
+    display: inline-block;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff;
+    margin: 5px;
+    font-size: 4em;
+    height: 1.2em
+}
+
+.select-button:hover {
+    background-color: #fff
+}
+
+.letter-select-button {
+    width: 1.2em;
+}
+
+.number-select-button {
+    width: 1.6em;
+}
+
+.bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar-border {
+    width: 20em;
+    height: 1em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff;
+}
+
+.bar-value {
+    background-color: #fff;
+    height: 1em;
+}
+
+span {
+    margin: 1em;
+}
+
+.simple-value {
+    margin-left: 1em;
+    font-size: 1.2em
+}

@@ -1,0 +1,13 @@
+{
+  "author": "Timothy M. Stepanski",
+  "devDependencies": {
+    "typescript": "^4.9.4",
+    "uglify-js": "^3.17.4"
+  },
+  "license": "GPL",
+  "name": "yam-holes",
+  "scripts": {
+    "build": "tsc main.ts && uglifyjs main.js --compress --mangle --mangle-props --output main.min.js"
+  },
+  "version": "1.0.0"
+}
