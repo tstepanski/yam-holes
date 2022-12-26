@@ -5,9 +5,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
-    environment: aws-production
     steps:
       - uses: actions/checkout@v3
       - name: "Setup Node.js"
@@ -19,6 +18,11 @@ jobs:
         run: npm install
       - name: "Run Build, Minify, and Publish"
         run: npm run publish
+  Deploy:
+    needs: Build
+    runs-on: ubuntu-latest
+    environment: aws-production
+    steps:
       - name: "Setup AWS Credentials"
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -27,3 +31,5 @@ jobs:
           aws-region: ${{ secrets.REGION }}
       - name: "Run Sync"
         run: aws s3 sync ./dist s3://${{ secrets.BUCKET_NAME }}
+      - name: "Invalidate CloudFront Distribution"
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
