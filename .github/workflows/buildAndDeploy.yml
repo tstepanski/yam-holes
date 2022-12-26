@@ -18,7 +18,7 @@ jobs:
         run: npm install
       - name: "Run Build, Minify, and Publish"
         run: npm run publish
-      - uses: actions/upload-artifact@3.1.1
+      - uses: actions/upload-artifact@v3.1.1
         with:
           name: site-files
           path: ./dist/
@@ -27,12 +27,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: aws-production
     steps:
-      - uses: actions/download-artifact@3.0.1
+      - uses: actions/download-artifact@v3.0.1
         with:
           name: site-files
           path: ./dist
       - name: "Setup AWS Credentials"
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-access-key-id: ${{ secrets.KEY_ID }}
           aws-secret-access-key: ${{ secrets.ACCESS_KEY }}
