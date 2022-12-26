@@ -1,0 +1,16 @@
+body {
+    background-color: #5b64ff;
+    font-family: Roboto, sans-serif;
+}
+
+td {
+    text-align: right;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(50, 50, 50, .2)
+}
+
+tr th:nth-child(1), th:nth-child(2), td:nth-child(1), td:nth-child(2) {
+    text-align: left;
+}
