@@ -1,7 +1,5 @@
 const fileSystem = require("fs");
 
-fileSystem.readdirSync("./src").forEach(console.log);
-
 fileSystem.copyFileSync("./src/styles.css", "./dist/styles.css");
 
 const markup = fileSystem
