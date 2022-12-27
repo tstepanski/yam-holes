@@ -13,22 +13,31 @@ const minificationOptions = {
 	minifyJs: true
 };
 
-const minifyMarkupAndWrite = (fileName, markup) => {
+const footerTask = (async () => {
+	const footerBuffer = await fileSystem.readFile("./src/footer.html");
+
+	return footerBuffer.toString();
+})();
+
+const minifyMarkupAndWrite = async (fileName, markup) => {
+	const footer = await footerTask;
+
+	markup = markup
+		.replace("<!-- FOOTER -->", footer)
+		.replace(".css", ".min.css")
+		.replace(".ts", ".min.js");
+
 	const minifiedMarkup = minifyMarkup(markup, minificationOptions);
 
-	return fileSystem.writeFile(`./dist/${fileName}.html`, minifiedMarkup);
+	return await fileSystem.writeFile(`./dist/${fileName}.html`, minifiedMarkup);
 };
 
-const writeMarkupTask = (async () => {
-	const sourceMarkup = await fileSystem.readFile("./src/index.html");
+const readMinifyAndWriteMarkup = async fileName => {
+	const markupBuffer = await fileSystem.readFile(`./src/${fileName}.html`);
+	const markup = markupBuffer.toString();
 
-	const replacedMarkup = sourceMarkup
-		.toString()
-		.replace("main.ts", "main.min.js")
-		.replace("styles.css", "styles.min.css");
-
-	await minifyMarkupAndWrite("index", replacedMarkup);
-})();
+	await minifyMarkupAndWrite(fileName, markup);
+};
 
 const writeTableMarkupTask = (async () => {
 	const dataTask = fileSystem.readFile("./src/wormholes.json")
@@ -38,16 +47,19 @@ const writeTableMarkupTask = (async () => {
 	const markup = sourceMarkupBuffer.toString();
 	const wormholes = JSON.parse(json);
 	const [start, template, end] = markup.split("<!-- TEMPLATE -->");
-	const replacedStart = start.replace("table-styles.css", "table-styles.min.css");
 
 	const wormholeRows = wormholes
 		.map(wormhole => Object
 			.keys(wormhole)
 			.reduce((templateCopy, key) => templateCopy.replace(`{{${key}}}`, wormhole[key]), template));
 
-	const replacedMarkup = [replacedStart, ...wormholeRows, end].join("");
+	const replacedMarkup = [start, ...wormholeRows, end].join("");
 
 	await minifyMarkupAndWrite("table", replacedMarkup);
 })();
 
-(() => Promise.all([writeTableMarkupTask, writeMarkupTask]))();
+
+const writeMarkupTask = readMinifyAndWriteMarkup("index");
+const writePrivacyPolicyTask = readMinifyAndWriteMarkup("privacy");
+
+(() => Promise.all([writeTableMarkupTask, writeMarkupTask, writePrivacyPolicyTask]))();

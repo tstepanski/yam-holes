@@ -1,47 +1,59 @@
 body {
-    background-color: #5b64ff;
+    background-color: #333;
     font-family: Roboto, sans-serif;
-    text-align: center
+    text-align: center;
+    color: #bbb;
+}
+
+#privacy-policy {
+    text-align: left !important;
+    display: grid;
+    justify-content: center;
+}
+
+#privacy-policy div {
+    display: block;
+    width: 50vw;
+    min-width: 500px;
 }
 
 .select-button {
     border: 2px solid #fff;
     box-shadow: 5px 5px 5px #000;
     display: inline-block;
-    font-size: 4em;
+    font-size: 3.5em;
     height: 1.2em;
-    margin: 5px
+    margin: 5px;
 }
 
 .mouse-down {
-    box-shadow: 2px 2px 5px #000
+    box-shadow: 2px 2px 5px #000;
 }
 
 .select-button:hover {
-    background-color: #fff
+    background-color: #fff;
 }
 
 .letter-select-button {
-    width: 1.2em
+    width: 1.2em;
 }
 
 .number-select-button {
-    width: 2em
+    width: 2em;
 }
 
 #wormhole-metrics {
-    text-align: center
+    text-align: center;
 }
 
-#wormhole-metric-bars,
-#wormhole-metric-values {
+#wormhole-metric-bars, #wormhole-metric-values {
     display: inline-block;
     text-align: right;
-    vertical-align: top
+    vertical-align: top;
 }
 
 #wormhole-metric-bars {
-    text-align: left
+    text-align: left;
 }
 
 .value-header {
@@ -49,25 +61,25 @@ body {
     font-weight: 700;
     margin-bottom: .25em;
     margin-left: 0;
-    margin-top: 1em
+    margin-top: 1em;
 }
 
 .bar-border {
     border: 2px solid #fff;
     display: block;
     height: 1em;
-    width: 10vw
+    width: 10vw;
 }
 
 .bar-value {
     background-color: #fff;
-    height: 1em
+    height: 1em;
 }
 
 .simple-value {
     display: block;
     font-size: 1em;
-    margin: 2.4em
+    margin: 2.4em;
 }
 
 #wormhole-destination {
@@ -78,4 +90,17 @@ body {
 
 h1, h2 {
     margin-bottom: 0.25em;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+footer span {
+  display: block;
+  margin-top: .5em;
 }
