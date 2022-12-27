@@ -6,6 +6,7 @@ EVE Online Wormhole Tool
 
 * [Repository](https://github.com/tstepanski/yam-holes)
 * [Official Site](https://yamholes.com/)
+* [Project Site](https://yam-holes.youtrack.cloud/)
 
 ## Prerequisites
 
@@ -20,4 +21,4 @@ EVE Online Wormhole Tool
 
 ## Issues and Feature Requests
 
-Use the [issue tracker in GitHub](https://github.com/tstepanski/yam-holes/issues) to report issues and request features
+Use the [project board in YouTrack](https://yam-holes.youtrack.cloud/) to report issues and request features
