@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
-    "alwaysStrict": true,
-    "experimentalDecorators": true,
-    "module": "None",
-    "noImplicitAny": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "removeComments": true,
-    "sourceMap": false,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "target": "ES5"
+	"alwaysStrict": true,
+	"experimentalDecorators": true,
+	"module": "None",
+	"noImplicitAny": true,
+	"noImplicitOverride": true,
+	"noImplicitReturns": true,
+	"noImplicitThis": true,
+	"noUnusedLocals": true,
+	"removeComments": true,
+	"sourceMap": false,
+	"strictBindCallApply": true,
+	"strictFunctionTypes": true,
+	"strictNullChecks": true,
+	"strictPropertyInitialization": true,
+	"target": "ES5"
   },
   "include": [
-    "src"
+	"src"
   ],
   "exclude": [
-    "node_modules"
+	"node_modules"
   ]
 }

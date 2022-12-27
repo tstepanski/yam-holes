@@ -1,23 +1,23 @@
 {
   "author": "Timothy M. Stepanski",
   "devDependencies": {
-    "@types/node": "^18.11.17",
-    "css-minify": "^2.0.0",
-    "html-minifier": "^4.0.0",
-    "typescript": "^4.9.4",
-    "uglify-js": "^3.17.4"
+	"@types/node": "^18.11.17",
+	"css-minify": "^2.0.0",
+	"html-minifier": "^4.0.0",
+	"typescript": "^4.9.4",
+	"uglify-js": "^3.17.4"
   },
   "license": "GPL",
   "name": "yam-holes",
   "scripts": {
-    "clean": "node ./scripts/clean.js",
-    "build": "node ./scripts/build.js",
-    "minifiy-js": "uglifyjs ./dist/main.min.js --compress --mangle --mangle-props --output ./dist/main.min.js",
-    "publish-js": "npm run build && npm run minifiy-js",
-    "copy-files": "node ./scripts/copy-static-files.js",
-    "minify-css": "css-minify --dir ./src --output ./dist",
-    "publish-static": "npm run copy-files && npm run minify-css",
-    "publish": "npm run clean && npm run publish-js && npm run publish-static"
+	"clean": "node ./scripts/clean.js",
+	"build": "node ./scripts/build.js",
+	"minifiy-js": "uglifyjs ./dist/main.min.js --compress --mangle --mangle-props --output ./dist/main.min.js",
+	"publish-js": "npm run build && npm run minifiy-js",
+	"copy-files": "node ./scripts/copy-static-files.js",
+	"minify-css": "css-minify --dir ./src --output ./dist",
+	"publish-static": "npm run copy-files && npm run minify-css",
+	"publish": "npm run clean && npm run publish-js && npm run publish-static"
   },
   "type": "module",
   "version": "1.0.0"
