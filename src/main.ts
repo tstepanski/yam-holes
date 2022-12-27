@@ -13,6 +13,8 @@ const wormHoles: Readonly<Wormhole>[] =
 // DATA
 ;
 
+const lastButtonOfTypeClicked: Record<string, HTMLElement> = {};
+
 const getElement = (id: string): HTMLElement => {
 	const element = document.getElementById(id);
 
@@ -31,7 +33,7 @@ const createButtons =
 		Object
 			.keys(record)
 			.sort()
-			.forEach(key => {
+			.forEach((key, index) => {
 				const button = document.createElement("div");
 				const removeMouseDownClass = (): void => button.classList.remove("mouse-down");
 
@@ -40,12 +42,26 @@ const createButtons =
 
 				button.classList.add(`${type}-select-button`, "select-button");
 
-				button.addEventListener("click", () => onClickHandler(key));
+				const onClick = () => {
+					lastButtonOfTypeClicked[type]?.classList.remove("selected");
+
+					button.classList.add("selected");
+
+					lastButtonOfTypeClicked[type] = button;
+
+					onClickHandler(key);
+				};
+
+				button.addEventListener("click", onClick);
 				button.addEventListener("mousedown", () => button.classList.add("mouse-down"));
 				button.addEventListener("mouseup", removeMouseDownClass);
 				button.addEventListener("mouseleave", removeMouseDownClass);
 
 				parent.appendChild(button);
+
+				if (index === 0) {
+					onClick();
+				}
 			});
 
 const wormholesByFirstLetterThenByNumbers = wormHoles.reduce((accumulator, wormhole) => {
